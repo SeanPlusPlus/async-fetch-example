@@ -1,7 +1,7 @@
 const request = require('request')
 const async = require('async')
 
-const fetch = (url, cb) => {
+const get = (url, cb) => {
   request.get(url, (err, response, body) => {
     if (err) {
       cb(err)
@@ -18,7 +18,7 @@ const urls = [
   'https://httpbin.org/anything',
 ]
 
-async.map(urls, fetch, (err, results) => {
+async.map(urls, get, (err, results) => {
   if (err) {
     console.log(err)
     return
